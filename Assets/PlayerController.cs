@@ -73,24 +73,34 @@ public class PlayerController : MonoBehaviour
 
     void FindPath()
     {
+                          /*查找路径功能函数*/
+
         List<Transform> nextCubes = new List<Transform>();
         List<Transform> pastCubes = new List<Transform>();
 
+              /*foreach循环用于列举出集合中的所有元素，foreach语句中表达式由关键字in隔开*/
+
         foreach (WalkPath path in currentCube.GetComponent<Walkable>().possiblePaths)
         {
+               /*in右边项为集合名，in左边项是变量名，用于存放该集合中的每一个元素*/
             if (path.active)
             {
+                 /*添加cube可能移动路径并将其添加到nextCubes集合中*/
                 nextCubes.Add(path.target);
                 path.target.GetComponent<Walkable>().previousBlock = currentCube;
             }
         }
 
+                   /*添加currentCube到nextCubes列表*/
         pastCubes.Add(currentCube);
 
         ExploreCube(nextCubes, pastCubes);
         BuildPath();
     }
 
+
+     /*检查所有的nextcube集合元素*/
+     
     void ExploreCube(List<Transform> nextCubes, List<Transform> visitedCubes)
     {
         Transform current = nextCubes.First();
@@ -100,7 +110,8 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-
+          /*检查walkable脚本是否已经被访问过，如果访问过的话无需继续构建路径*/
+           /*如果尚未访问，将其添加到nextCube列表，并继续这样做*/
         foreach (WalkPath path in current.GetComponent<Walkable>().possiblePaths)
         {
             if (!visitedCubes.Contains(path.target) && path.active)
@@ -112,6 +123,7 @@ public class PlayerController : MonoBehaviour
 
         visitedCubes.Add(current);
 
+          /*判断nextCubes里面是否包含元素*/
         if (nextCubes.Any())
         {
             ExploreCube(nextCubes, visitedCubes);
@@ -141,18 +153,23 @@ public class PlayerController : MonoBehaviour
 
         walking = true;
 
+          /*按顺序将Player移动到每个方块的区域*/
         for (int i = finalPath.Count - 1; i > 0; i--)
         {
             float time = finalPath[i].GetComponent<Walkable>().isStair ? 1.5f : 1;
 
+                   /*使用线性缓和运动使物体有一个无缝的过渡*/
             s.Append(transform.DOMove(finalPath[i].GetComponent<Walkable>().GetWalkPoint(), .2f * time).SetEase(Ease.Linear));
 
             if(!finalPath[i].GetComponent<Walkable>().dontRotate)
                s.Join(transform.DOLookAt(finalPath[i].position, .1f, AxisConstraint.Y, Vector3.up));
         }
 
+                 /*按钮触发事件*/
+
         if (clickedCube.GetComponent<Walkable>().isButton)
         {
+           /*DOTWEEN 联合动画SEQUENCE的使用*/
             s.AppendCallback(()=>GameManager.instance.RotateRightPivot());
         }
 
@@ -171,10 +188,14 @@ public class PlayerController : MonoBehaviour
 
     public void RayCastDown()
     {
-
+          /*通过投射数组，并调用当前结果立方体来检测玩家所处的立方体*/
         Ray playerRay = new Ray(transform.GetChild(0).position, -transform.up);
+
+       /* RaycastHit类用于存储发射射线后产生的碰撞信息*/
         RaycastHit playerHit;
 
+
+          
         if (Physics.Raycast(playerRay, out playerHit))
         {
             if (playerHit.transform.GetComponent<Walkable>() != null)
@@ -183,6 +204,9 @@ public class PlayerController : MonoBehaviour
 
                 if (playerHit.transform.GetComponent<Walkable>().isStair)
                 {
+                    /*具体函数用法*/
+
+                 /*区分楼梯和平面的运动情形*/
                     DOVirtual.Float(GetBlend(), blend, .1f, SetBlend);
                 }
                 else
@@ -201,11 +225,12 @@ public class PlayerController : MonoBehaviour
     }
 
     float GetBlend()
-    {
+    {       /*获取游戏子物体指定浮点数值*/
         return GetComponentInChildren<Animator>().GetFloat("Blend");
     }
     void SetBlend(float x)
     {
+        /*将浮点值放到动画器以影响过渡*/
         GetComponentInChildren<Animator>().SetFloat("Blend", x);
     }
 

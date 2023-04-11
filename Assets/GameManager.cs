@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
+    /*转动物体*/
     public void RotateRightPivot()
     {
         pivots[1].DOComplete();

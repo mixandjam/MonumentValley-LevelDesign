@@ -5,35 +5,39 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     public Animator transition;
-    public float transitionTime = 1f;
+    [Tooltip("过渡时间")]
+    public float transitionTime = 2f;
+
+    // Start is called before the first frame update
+    
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetKey(KeyCode.K))
         {
             LoadNextLevel();
         }
+        
     }
-    public void LoadNextLevel()
+    public   void   LoadNextLevel()
     {
-       StartCoroutine( LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+       StartCoroutine( LoadLevel( SceneManager.GetActiveScene().buildIndex+1));
       
-    }    
-/*游戏场景*/
-IEnumerator LoadLevel(int levelIndex)
-        {
-            //Play animation
-            transition.SetTrigger("Start");
-
-            //wait
-            yield return new WaitForSeconds(transitionTime);
-
-            //Load scene
-            SceneManager.LoadScene(levelIndex);
-        }
 
     }
+    IEnumerator LoadLevel(int levleIndex)
+    {
+        //Play anmation
+        transition.SetTrigger("Start");
 
+        //Wait
+        yield return new WaitForSeconds(transitionTime);
+
+        //Load scene
+        SceneManager.LoadScene(levleIndex);
+        
+    }
+}

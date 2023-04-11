@@ -5,6 +5,8 @@ using UnityEngine;
 public class Walkable : MonoBehaviour
 {
 
+   /*创建一个WalkPath类的新列表*/
+/*用于手动设置路径的可读性*/
     public List<WalkPath> possiblePaths = new List<WalkPath>();
 
     [Space]
@@ -27,6 +29,7 @@ public class Walkable : MonoBehaviour
 
     public Vector3 GetWalkPoint()
     {
+/*通过跟踪偏移变量来确定行走点*/
         float stair = isStair ? stairOffset : 0;
         return transform.position + transform.up * walkPointOffset - transform.up * stair;
     }
@@ -51,8 +54,11 @@ public class Walkable : MonoBehaviour
 }
 
 [System.Serializable]
+
+/*用于确定玩家从每个对象可能行走的方向*/
 public class WalkPath
 {
     public Transform target;
+/*布尔值检查路径是否被激活*/
     public bool active = true;
 }
