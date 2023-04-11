@@ -5,7 +5,6 @@ using UnityEngine;
 public class UIControl : MonoBehaviour
 {
     private GameObject button;
-    private GameObject image1;
     private GameObject text;
     bool flag = false;
     float timer = 0;
