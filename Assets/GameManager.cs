@@ -64,6 +64,10 @@ public class GameManager : MonoBehaviour
     }
 }
 
+
+
+
+
 [System.Serializable]
 public class PathCondition
 {
