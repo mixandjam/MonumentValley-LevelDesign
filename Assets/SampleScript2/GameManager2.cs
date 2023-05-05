@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager2 : MonoBehaviour
 {
+    [SerializeField] private Transform cubeTransform;//方块的Transform组件
+    private Vector3 startLocation = new Vector3(21.906f, 18.93f, 3.837f); // 初始位置
+
+    private Vector3 endLocation = new Vector3(21.906f, 35.24f, 3.837f); // 结束位置
+
+    private float moveDistance = 16.31f;
+    private float moveDuration = 3f;
 
     public static GameManager2 instance;
 
@@ -29,24 +36,7 @@ public class GameManager2 : MonoBehaviour
     void Update()
     {
 
-        /*路径变换*/
-        foreach (PathCondition pc in pathConditions)
-        {
-            int count = 0;
-            for (int i = 0; i < pc.conditions.Count; i++)
-            {
-                if (pc.conditions[i].conditionObject.eulerAngles == pc.conditions[i].eulerAngle)
-                {
-                    count++;
-                }
-            }
-            foreach (SinglePath sp in pc.paths)
-                sp.block.possiblePaths[sp.index].active = (count == pc.conditions.Count);
-        }
-
-
-
-
+      
         if (player.walking)
             return;
 
@@ -58,37 +48,28 @@ public class GameManager2 : MonoBehaviour
             pivots[0].DORotate(new Vector3(0, 90 * multiplier, 0), .6f, RotateMode.WorldAxisAdd).SetEase(Ease.OutBack);
         }
 
+
         /*平面的隐藏*/
 
 
-        /*按钮平台的上升*/
-
-
+     
 
     }
-
-    /*序列化？*/
-
-    [System.Serializable]
-    public class PathCondition
+    public  void RotatePivot()
     {
-        public string pathConditionName;
-        public List<Condition> conditions;
-        public List<SinglePath> paths;
-    }
-    [System.Serializable]
-    public class Condition
-    {
-        public Transform conditionObject;
-        public Vector3 eulerAngle;
+        /*平台上升*/
+   
+/*使用DOTWeen API设置动画*/
 
-    }
-    [System.Serializable]
-    public class SinglePath
-    {
-        public Walkable block;
-        public int index;
-    }
+        cubeTransform.DOMoveY(cubeTransform.position.y+moveDistance,moveDuration).SetEase(Ease.Linear);
+
+
+    
+}
 
 }
+
+/*序列化？*/
+
+
 

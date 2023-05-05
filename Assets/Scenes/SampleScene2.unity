@@ -240,7 +240,7 @@ MonoBehaviour:
   previousBlock: {fileID: 0}
   isStair: 0
   movingGround: 0
-  isButton: 0
+  isButton: 1
   dontRotate: 0
   walkPointOffset: 0.3
   stairOffset: 0.4
@@ -4173,7 +4173,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh209810
+  m_Name: pb_Mesh28754
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5638,7 +5638,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-145234
+  m_Name: pb_Mesh28334
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6034,6 +6034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddaf8140d442af409e4af5555f5df06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cubeTransform: {fileID: 528550294}
   player: {fileID: 1341948960962123439}
   pathConditions: []
   pivots:
@@ -7114,7 +7115,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-127616
+  m_Name: pb_Mesh28820
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8016,6 +8017,7 @@ GameObject:
   - component: {fileID: 1341948960962123438}
   - component: {fileID: 1341948960962123437}
   - component: {fileID: 1341948960962123439}
+  - component: {fileID: 1341948960962123440}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -8061,9 +8063,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341948960962123432}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d1da79146cc54c4d8617950d14fbc3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walking: 0
+  currentCube: {fileID: 0}
+  clickedCube: {fileID: 0}
+  indicator: {fileID: 8681121618843252595}
+  finalPath: []
+--- !u!114 &1341948960962123440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341948960962123432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17eadfc63b7d42f42940d179071206f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   walking: 0
