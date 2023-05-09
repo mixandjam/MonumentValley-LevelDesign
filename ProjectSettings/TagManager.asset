@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - finishButton
+  - ButtonImage
+  - ui
+  - text0
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -15,7 +20,7 @@ TagManager:
   - 
   - Top
   - PostProcessing
-  - 
+  - Top2
   - 
   - 
   - 

@@ -11,6 +11,8 @@ public class GameManager2 : MonoBehaviour
 
     private Vector3 endLocation = new Vector3(21.906f, 35.24f, 3.837f); // 结束位置
 
+    float targetY = -4.7f;//平台上升位置
+
     private float moveDistance = 16.31f;
     private float moveDuration = 3f;
 
@@ -35,12 +37,31 @@ public class GameManager2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        foreach (PathCondition pc in pathConditions)
+        {
+            int count = 0;
+            for (int i = 0; i < pc.conditions.Count; i++)
+            {
+             
+             /*   if (pc.conditions[i].conditionObject.eulerAngles == pc.conditions[i].eulerAngle)
+                {*/
 
-      
+/*欧拉角为什么不一致*/
+                  if (pc.conditions[i].conditionObject.eulerAngles== pc.conditions[i].eulerAngle)
+                { 
+                    count++;  
+                    //Debug.Log("Count2=" + count);
+                }
+            }
+            foreach (SinglePath sp in pc.paths)
+                sp.block.possiblePaths[sp.index].active = (count == pc.conditions.Count);
+        }
+
         if (player.walking)
             return;
 
         /* rotateCube的旋转*/
+/*仅当player位于特定方块时才能实现该功能*/
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             int multiplier = Input.GetKey(KeyCode.RightArrow) ? 1 : -1;
@@ -58,10 +79,12 @@ public class GameManager2 : MonoBehaviour
     public  void RotatePivot()
     {
         /*平台上升*/
-   
-/*使用DOTWeen API设置动画*/
 
-        cubeTransform.DOMoveY(cubeTransform.position.y+moveDistance,moveDuration).SetEase(Ease.Linear);
+
+        /*使用DOTWeen API设置动画*/
+
+        /*  cubeTransform.DOMoveY(cubeTransform.position.y+moveDistance,moveDuration).SetEase(Ease.Linear);*/
+        cubeTransform.DOMoveY(targetY, moveDuration).SetEase(Ease.Linear);/*使得平台移动到固定位置*/
 
 
     
@@ -70,6 +93,5 @@ public class GameManager2 : MonoBehaviour
 }
 
 /*序列化？*/
-
 
 
