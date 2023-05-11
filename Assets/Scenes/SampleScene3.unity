@@ -132,6 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 722193912}
+  - component: {fileID: 722193914}
+  - component: {fileID: 722193913}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -152,8 +154,43 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &722193913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722193911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &722193914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722193911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!43 &794589026
 Mesh:
   m_ObjectHideFlags: 0
@@ -1079,7 +1116,7 @@ Transform:
   - {fileID: 185476878839187220}
   - {fileID: 8111814933512630498}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &185476879904079677
 BoxCollider:
@@ -2399,7 +2436,7 @@ Transform:
   m_Children:
   - {fileID: 1129581930924898847}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1129581930796922125
 MeshFilter:
@@ -7624,123 +7661,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1839402478886727954
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1839402478886727964}
-  - component: {fileID: 1839402478886727955}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1839402478886727955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839402478886727954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6bcfb9f957889c458b68fddd59f3d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  pathConditions:
-  - pathConditionName: Enter Connection
-    conditions:
-    - conditionObject: {fileID: 0}
-      eulerAngle: {x: 0, y: 0, z: 0}
-    paths:
-    - block: {fileID: 0}
-      index: 1
-    - block: {fileID: 0}
-      index: 1
-  - pathConditionName: 1st Connection
-    conditions:
-    - conditionObject: {fileID: 0}
-      eulerAngle: {x: 0, y: 90, z: 0}
-    paths:
-    - block: {fileID: 0}
-      index: 1
-    - block: {fileID: 0}
-      index: 0
-  - pathConditionName: 2nd Connection
-    conditions:
-    - conditionObject: {fileID: 0}
-      eulerAngle: {x: 0, y: 180, z: 0}
-    paths:
-    - block: {fileID: 0}
-      index: 1
-    - block: {fileID: 0}
-      index: 0
-  - pathConditionName: 3th Connection
-    conditions:
-    - conditionObject: {fileID: 0}
-      eulerAngle: {x: 0, y: 270, z: 0}
-    paths:
-    - block: {fileID: 0}
-      index: 1
-    - block: {fileID: 0}
-      index: 0
-  - pathConditionName: End Connection
-    conditions:
-    - conditionObject: {fileID: 0}
-      eulerAngle: {x: 0, y: 0, z: 0}
-    paths:
-    - block: {fileID: 0}
-      index: 1
-    - block: {fileID: 0}
-      index: 0
-  - pathConditionName: Extra Connection
-    conditions:
-    - conditionObject: {fileID: 0}
-      eulerAngle: {x: 0, y: 0, z: 90}
-    paths:
-    - block: {fileID: 0}
-      index: 1
-    - block: {fileID: 0}
-      index: 0
-    - block: {fileID: 0}
-      index: 1
-    - block: {fileID: 0}
-      index: 0
-  - pathConditionName: Button Connection
-    conditions:
-    - conditionObject: {fileID: 0}
-      eulerAngle: {x: 0, y: 90, z: 0}
-    paths:
-    - block: {fileID: 0}
-      index: 0
-    - block: {fileID: 0}
-      index: 2
-  pivots:
-  - {fileID: 0}
-  - {fileID: 0}
-  objectsToHide: []
---- !u!4 &1839402478886727964
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839402478886727954}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928776865707051343
 GameObject:
   m_ObjectHideFlags: 0
@@ -10437,7 +10357,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 35.264, y: -45, z: 0}
 --- !u!33 &3989437722055831829
 MeshFilter:
@@ -12001,7 +11921,7 @@ Transform:
   - {fileID: 4381917411345630988}
   - {fileID: 4381917410671344585}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4381917410592754745
 GameObject:
@@ -24674,7 +24594,7 @@ RectTransform:
   - {fileID: 8386618468505991729}
   - {fileID: 8386618468544274412}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
