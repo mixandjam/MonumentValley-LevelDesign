@@ -59,7 +59,7 @@ Material:
     - _WeightNormal: 0
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
-    - _FaceColor: {r: 0.12270077, g: 0.15001518, b: 0.8301887, a: 1}
+    - _FaceColor: {r: 0.83137256, g: 0.12156862, b: 0.26745915, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_BuildTextureStacks: []
