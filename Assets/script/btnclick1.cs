@@ -15,6 +15,6 @@ public class btnclick1 : MonoBehaviour
     }
     public void nextGame()
     {
-        SceneManager.LoadScene("SampleScene3");
+        SceneManager.LoadScene("SampleScene2");
     }
 }

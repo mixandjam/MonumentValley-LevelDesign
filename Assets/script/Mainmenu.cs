@@ -18,7 +18,7 @@ public class Mainmenu : MonoBehaviour
     }
     public void playGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("ChapterScene");
     }
     public void Options()
     {
@@ -27,5 +27,10 @@ public class Mainmenu : MonoBehaviour
     public void Settings()
     {
 
+    }
+    public void Quit()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
     }
 }
